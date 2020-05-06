@@ -1,0 +1,17 @@
+{
+  "name": "abc-bank-api-services",
+  "version": "1.0.0",
+  "description": "Rest API Services for ABC Retail Bank",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Agurchand",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.11"
+  }
+}
