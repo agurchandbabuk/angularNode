@@ -79,4 +79,24 @@ router.get('/user/balance/:id', async (req, res) => {
     }
 })
 
+router.patch('/user/updatepass/:id', async (req, res) => {
+    const user_id = req.params.id
+    const updates = Object.keys(req.body)
+    try {
+        const user = await UserModel.findById(user_id)        
+        if (!user) {
+            return res.status(400).send({'error': true, 'message': 'Not a valid user id'})
+        }
+        const matchPass = bcrypt.compareSync(req.body.current_pass, user.password)
+        if (!matchPass) {
+            return res.status(400).send({'error': true, 'message': 'Current password is not valid!'})
+        }
+        updates.forEach( update => user[update] = req.body[update])
+        await user.save()
+        res.send(user)
+    } catch (error) {
+        res.status(500).send(error)
+    }    
+})
+
 module.exports = router

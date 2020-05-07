@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     AuthComponent,
     HomeComponent,
     HeaderComponent,
-    TransactionComponent
+    TransactionComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,

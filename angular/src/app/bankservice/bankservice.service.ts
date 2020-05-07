@@ -7,22 +7,22 @@ import { Injectable, OnInit } from '@angular/core';
 
 export class BankService {
 
-    user_id: string;
+    constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient){
-        const userData = JSON.parse(localStorage.getItem('userData'));
-        this.user_id = userData.id;
+    getUserbalance(user_id) {
+        return this.http.get('http://localhost:3001/user/balance/'+user_id);
     }
 
-    getUserbalance() {
-        return this.http.get('http://localhost:3001/user/balance/'+this.user_id);
-    }
-
-    getUserTransactions() {        
-        return this.http.get('http://localhost:3001/transaction/user/'+this.user_id);
+    getUserTransactions(user_id) {        
+        return this.http.get('http://localhost:3001/transaction/user/'+user_id);
     }
 
     addUserTransaction(transData) {
         return this.http.post('http://localhost:3001/transaction/add', transData);
     }
+    
+    updateUserPassword(user_id, data){
+        return this.http.patch('http://localhost:3001/user/updatepass/'+user_id, data);
+    }
+
 }

@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.userData = JSON.parse(localStorage.getItem('userData'));
-    
-    this.bankService.getUserTransactions().subscribe(resData => {      
+        
+    this.bankService.getUserTransactions(this.userData.id).subscribe(resData => {      
       this.transactions = resData;
       this.transactions.map( (data, index) => {
        var datePipe = new DatePipe("en-US");
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         console.log(error)
     });
 
-    this.bankService.getUserbalance().subscribe(resData => {
+    this.bankService.getUserbalance(this.userData.id).subscribe(resData => {
       this.userBalance = resData;
       this.userBalance = this.userBalance.balance;
     }, error => {
