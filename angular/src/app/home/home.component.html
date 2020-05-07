@@ -1,0 +1,36 @@
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <h4>Welcome {{ userData.fullname }}</h4>
+    </div>
+    <div class="col-xs-6">
+        <h4 class="pull-right">Account Balance: {{ userBalance }}</h4>
+    </div>
+</div>
+
+<br /><br />
+<div class="row">
+    
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Transacion Date</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trans of transactions">
+                    <td>{{ trans.transDate }}</td>
+                    <td>{{ trans.transDesc }}</td>
+                    <td>{{ trans.transType }}</td>
+                    <td>{{ trans.transAmt }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>   
+   
+</div>

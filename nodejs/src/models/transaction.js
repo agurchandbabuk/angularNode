@@ -14,7 +14,7 @@ const transactionSchema = new mongoose.Schema(
             type: Number,
             require: true
         },
-        tranDesc: {
+        transDesc: {
             type: String,
             default: ''
         },

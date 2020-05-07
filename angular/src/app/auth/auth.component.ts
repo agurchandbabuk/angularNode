@@ -42,6 +42,7 @@ export class AuthComponent {
                 this.signupSuccess = true;
                 this.successText = 'Signup Success! Login to Continue';
                 this.isLoginMode = true;
+                this.btnTxt = 'Log In'
                 form.reset()
             }, error => {
                 console.log(error)

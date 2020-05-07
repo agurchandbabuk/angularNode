@@ -5,6 +5,7 @@ const UserModel = require('../models/user')
 
 router.post('/transaction/add', async (req, res) => {
     const data = req.body
+    console.log(data)
     try {
         const user = await UserModel.findById(data.transUserId)
         if (!user) {
@@ -22,7 +23,7 @@ router.post('/transaction/add', async (req, res) => {
         }
         await user.save()
 
-        res.status(401).send(transaction)
+        res.status(201).send(transaction)
     } catch (error) {
         res.status(500).send(error)
     }

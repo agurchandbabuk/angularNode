@@ -68,4 +68,15 @@ router.post('/user/login', async (req, res) => {
     }
 })
 
+router.get('/user/balance/:id', async (req, res) => {
+    const user_id = req.params.id
+    console.log(user_id)
+    try {
+        const user = await UserModel.findById(user_id)
+        res.send(user.banking)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
 module.exports = router

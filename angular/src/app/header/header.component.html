@@ -12,6 +12,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a routerLink="/">Home</a></li>
+          <li><a routerLink="/transaction" *ngIf="isAuthenticated">Make a Transaction</a></li>
           <li><a style="cursor: pointer;" (click)="onLogout()" *ngIf="isAuthenticated">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
