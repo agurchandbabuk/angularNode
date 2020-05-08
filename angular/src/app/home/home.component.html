@@ -24,8 +24,8 @@
                 <tr *ngFor="let trans of transactions">
                     <td>{{ trans.transDate }}</td>
                     <td>{{ trans.transDesc }}</td>
-                    <td>{{ trans.transType }}</td>
-                    <td>{{ trans.transAmt }}</td>
+                    <td class="{{(trans.transType == 'Withdraw') ? 'warning': 'success'}}">{{ trans.transType }}</td>
+                    <td><strong>{{ trans.transAmt }}</strong></td>
                 </tr>
             </tbody>
         </table>
